@@ -18,31 +18,29 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 max-w-[430px] mx-auto">
       <Navigation />
       
-      {/* Header Section */}
-      <header className="bg-gradient-to-r from-amber-800 to-orange-700 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-center md:text-left mb-6 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">Wastra Nusa</h1>
-              <p className="text-xl text-amber-100 max-w-2xl">
-                Memberdayakan Perajin Tradisional di Era Digital
-              </p>
-              <p className="text-amber-200 mt-2">
-                Platform untuk perajin Songket, Tapis, dan kain tradisional Indonesia
-              </p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Avatar className="h-16 w-16 border-2 border-amber-200">
+      {/* Header Section - Optimized for mobile */}
+      <header className="bg-gradient-to-r from-amber-800 to-orange-700 text-white py-6">
+        <div className="px-4">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-2">Wastra Nusa</h1>
+            <p className="text-sm text-amber-100 mb-1">
+              Memberdayakan Perajin Tradisional
+            </p>
+            <p className="text-xs text-amber-200 mb-4">
+              Platform untuk perajin Songket, Tapis, dan kain tradisional Indonesia
+            </p>
+            <div className="flex items-center justify-center space-x-3">
+              <Avatar className="h-12 w-12 border-2 border-amber-200">
                 <AvatarImage src="/placeholder.svg" />
-                <AvatarFallback className="bg-amber-600 text-white text-lg">SN</AvatarFallback>
+                <AvatarFallback className="bg-amber-600 text-white text-sm">SN</AvatarFallback>
               </Avatar>
-              <div>
-                <p className="font-semibold">Siti Nurhaliza</p>
-                <p className="text-amber-200 text-sm">Perajin Songket Palembang</p>
-                <Badge variant="secondary" className="mt-1 bg-amber-100 text-amber-800">
+              <div className="text-left">
+                <p className="font-semibold text-sm">Siti Nurhaliza</p>
+                <p className="text-amber-200 text-xs">Perajin Songket Palembang</p>
+                <Badge variant="secondary" className="mt-1 bg-amber-100 text-amber-800 text-xs">
                   Level Mahir
                 </Badge>
               </div>
@@ -51,44 +49,44 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Main Navigation Tabs */}
-      <div className="container mx-auto px-4 py-8">
+      {/* Main Navigation Tabs - Mobile optimized */}
+      <div className="px-2 py-4">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-5 mb-8 bg-white shadow-sm border">
+          <TabsList className="grid w-full grid-cols-5 mb-4 bg-white shadow-sm border h-12">
             <TabsTrigger 
               value="dashboard" 
-              className="flex items-center gap-2 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800"
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-1"
             >
-              <Calendar className="h-4 w-4" />
-              <span className="hidden sm:inline">Dashboard</span>
+              <Calendar className="h-3 w-3" />
+              <span className="text-xs">Dashboard</span>
             </TabsTrigger>
             <TabsTrigger 
               value="materials"
-              className="flex items-center gap-2 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800"
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-1"
             >
-              <Package className="h-4 w-4" />
-              <span className="hidden sm:inline">Bahan & Alat</span>
+              <Package className="h-3 w-3" />
+              <span className="text-xs">Bahan</span>
             </TabsTrigger>
             <TabsTrigger 
               value="training"
-              className="flex items-center gap-2 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800"
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-1"
             >
-              <BookOpen className="h-4 w-4" />
-              <span className="hidden sm:inline">Pelatihan</span>
+              <BookOpen className="h-3 w-3" />
+              <span className="text-xs">Pelatihan</span>
             </TabsTrigger>
             <TabsTrigger 
               value="products"
-              className="flex items-center gap-2 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800"
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-1"
             >
-              <Plus className="h-4 w-4" />
-              <span className="hidden sm:inline">Setor Produk</span>
+              <Plus className="h-3 w-3" />
+              <span className="text-xs">Setor</span>
             </TabsTrigger>
             <TabsTrigger 
               value="profile"
-              className="flex items-center gap-2 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800"
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-1"
             >
-              <User className="h-4 w-4" />
-              <span className="hidden sm:inline">Profil</span>
+              <User className="h-3 w-3" />
+              <span className="text-xs">Profil</span>
             </TabsTrigger>
           </TabsList>
 
