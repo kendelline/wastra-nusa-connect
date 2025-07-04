@@ -18,10 +18,8 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 max-w-[430px] mx-auto">
-      <Navigation />
-      
-      {/* Header Section - Optimized for mobile */}
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 max-w-[430px] mx-auto pb-20">
+      {/* Header Section - No fixed positioning */}
       <header className="bg-gradient-to-r from-amber-800 to-orange-700 text-white py-6">
         <div className="px-4">
           <div className="text-center">
@@ -49,47 +47,9 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Main Navigation Tabs - Mobile optimized */}
+      {/* Main Content Area */}
       <div className="px-2 py-4">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-5 mb-4 bg-white shadow-sm border h-12">
-            <TabsTrigger 
-              value="dashboard" 
-              className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-1"
-            >
-              <Calendar className="h-3 w-3" />
-              <span className="text-xs">Dashboard</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="materials"
-              className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-1"
-            >
-              <Package className="h-3 w-3" />
-              <span className="text-xs">Bahan</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="training"
-              className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-1"
-            >
-              <BookOpen className="h-3 w-3" />
-              <span className="text-xs">Pelatihan</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="products"
-              className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-1"
-            >
-              <Plus className="h-3 w-3" />
-              <span className="text-xs">Setor</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="profile"
-              className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-1"
-            >
-              <User className="h-3 w-3" />
-              <span className="text-xs">Profil</span>
-            </TabsTrigger>
-          </TabsList>
-
           <TabsContent value="dashboard">
             <DashboardOverview />
           </TabsContent>
@@ -110,6 +70,52 @@ const Index = () => {
             <ArtisanProfile />
           </TabsContent>
         </Tabs>
+      </div>
+
+      {/* Bottom Navigation - Fixed at bottom */}
+      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-gray-200 shadow-lg z-50">
+        <TabsList className="grid w-full grid-cols-5 h-16 bg-white rounded-none border-0">
+          <TabsTrigger 
+            value="dashboard" 
+            onClick={() => setActiveTab("dashboard")}
+            className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-2 h-full"
+          >
+            <Calendar className="h-5 w-5" />
+            <span className="text-xs">Dashboard</span>
+          </TabsTrigger>
+          <TabsTrigger 
+            value="materials"
+            onClick={() => setActiveTab("materials")}
+            className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-2 h-full"
+          >
+            <Package className="h-5 w-5" />
+            <span className="text-xs">Bahan</span>
+          </TabsTrigger>
+          <TabsTrigger 
+            value="training"
+            onClick={() => setActiveTab("training")}
+            className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-2 h-full"
+          >
+            <BookOpen className="h-5 w-5" />
+            <span className="text-xs">Pelatihan</span>
+          </TabsTrigger>
+          <TabsTrigger 
+            value="products"
+            onClick={() => setActiveTab("products")}
+            className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-2 h-full"
+          >
+            <Plus className="h-5 w-5" />
+            <span className="text-xs">Setor</span>
+          </TabsTrigger>
+          <TabsTrigger 
+            value="profile"
+            onClick={() => setActiveTab("profile")}
+            className="flex flex-col items-center gap-1 data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 p-2 h-full"
+          >
+            <User className="h-5 w-5" />
+            <span className="text-xs">Profil</span>
+          </TabsTrigger>
+        </TabsList>
       </div>
     </div>
   );
